@@ -1,0 +1,87 @@
+package sa;
+
+import java.util.*;
+
+public class SA {
+
+    public static void inputArray(int[] a, Scanner scanner) {
+        System.out.println("nhap gia tri cac phan tu:");
+        for (int i = 0; i < a.length; i++) {
+            System.out.println("phan tu thu" + (i + 1) + ":");
+            a[i] = scanner.nextInt();
+        }
+    }
+
+    public static void displayArray(int[] a) {
+        System.out.println("Mang vua nhap la :" + Arrays.toString(a));
+    }
+
+    public static void sapXepGiam(int[] a) {
+        int n = a.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (a[j] < a[j + 1]) {
+                    int tam = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = tam;
+                }
+            }
+        }
+        System.out.println("mang giam dan la:" + Arrays.toString(a));
+        System.out.println();
+    }
+
+    public static void timlonnhat(int[] a) {
+        int max = a[0];
+        for (int num : a) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        System.out.println("So lon nhat mang la :" + max);
+        System.out.println();
+    }
+
+    public static void timbenhat(int[] a) {
+        int min = a[0];
+        for (int num : a) {
+            if (num < min) {
+                min = num;
+            }
+        }
+        System.out.println("So lon nhat mang la :" + min);
+        System.out.println();
+    }
+
+    public static void chiahetchoHai(int[] a) {
+        boolean found = false;
+        System.out.println("Cac so chia het cho 2 la:");
+        for (int num : a) {
+            if (num % 2 == 0) {
+                System.out.println(num + " ");
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("KHong co");
+        } else {
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhap so phan tu cua mag :");
+        int n = scanner.nextInt();
+        int[] a = new int[n];
+        inputArray(a, scanner);
+        displayArray(a);
+        sapXepGiam(a);
+        timlonnhat(a);
+        timbenhat(a);
+        chiahetchoHai(a);
+
+    }
+
+}
+# Short_Answer
